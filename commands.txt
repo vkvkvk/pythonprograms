@@ -1,0 +1,30 @@
+heroku login
+
+cd helloflask
+
+virtualenv venv --distribute
+
+
+venv\Scripts\activate.bat
+
+foreman start
+
+git init
+
+git add .
+
+
+git commit –m “init”
+
+
+heroku create
+
+
+git push heroku master
+
+
+heroku ps:scale web=1
+
+heroku ps
+
+heroku open
