@@ -28,3 +28,332 @@ heroku ps:scale web=1
 heroku ps
 
 heroku open
+
+
+'venv' is not recognized as an internal or external command,
+operable program or batch file.
+
+(venv) C:\helloflask>venv *.pyc
+'venv' is not recognized as an internal or external command,
+operable program or batch file.
+
+(venv) C:\helloflask>venv*.pyc
+'venv*.pyc' is not recognized as an internal or external command,
+operable program or batch file.
+
+(venv) C:\helloflask>gitignore
+'gitignore' is not recognized as an internal or external command,
+operable program or batch file.
+
+(venv) C:\helloflask>python\.gitignore
+The system cannot find the path specified.
+
+(venv) C:\helloflask>\.gitignore
+'\.gitignore' is not recognized as an internal or external command,
+operable program or batch file.
+
+(venv) C:\helloflask>venv
+'venv' is not recognized as an internal or external command,
+operable program or batch file.
+
+(venv) C:\helloflask>git init
+Reinitialized existing Git repository in C:/helloflask/.git/
+
+(venv) C:\helloflask>git add .
+warning: You ran 'git add' with neither '-A (--all)' or '--ignore-removal',
+whose behaviour will change in Git 2.0 with respect to paths you removed.
+Paths like 'hello.py' that are
+removed from your working tree are ignored with this version of Git.
+
+* 'git add --ignore-removal <pathspec>', which is the current default,
+  ignores paths you removed from your working tree.
+
+* 'git add --all <pathspec>' will let you also record the removals.
+
+Run 'git status' to check the paths you removed from your working tree.
+
+
+(venv) C:\helloflask>git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   Procfile
+#       new file:   commands.txt
+#       modified:   hello.py
+#       new file:   hello1.py
+#       modified:   running app.docx
+#       new file:   venv/Scripts/.gitignore
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       deleted:    hello.py
+#       deleted:    ~$nning app.docx
+#
+
+(venv) C:\helloflask>git rm hello.py
+rm 'hello.py'
+
+(venv) C:\helloflask>git init
+Reinitialized existing Git repository in C:/helloflask/.git/
+
+(venv) C:\helloflask>git add .
+warning: You ran 'git add' with neither '-A (--all)' or '--ignore-removal',
+whose behaviour will change in Git 2.0 with respect to paths you removed.
+Paths like '~$nning app.docx' that are
+removed from your working tree are ignored with this version of Git.
+
+* 'git add --ignore-removal <pathspec>', which is the current default,
+  ignores paths you removed from your working tree.
+
+* 'git add --all <pathspec>' will let you also record the removals.
+
+Run 'git status' to check the paths you removed from your working tree.
+
+
+(venv) C:\helloflask>git commit -m "init"
+[master 4bb9938] init
+ 5 files changed, 34 insertions(+), 2 deletions(-)
+ create mode 100644 commands.txt
+ rename hello.py => hello1.py (72%)
+ rewrite running app.docx (63%)
+ create mode 100644 venv/Scripts/.gitignore
+
+(venv) C:\helloflask>heroku create
+ !    You've reached the limit of 5 apps for unverified accounts.
+ !    Add a credit card to verify your account.
+
+(venv) C:\helloflask>git push heroku master
+Counting objects: 14, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (9/9), 25.21 KiB | 0 bytes/s, done.
+Total 9 (delta 2), reused 0 (delta 0)
+
+-----> Python app detected
+-----> No runtime.txt provided; assuming python-2.7.4.
+-----> Using Python runtime (python-2.7.4)
+-----> Installing dependencies using Pip (1.3.1)
+       Cleaning up...
+-----> Discovering process types
+       Procfile declares types -> web
+
+-----> Compiled slug size: 32.5MB
+-----> Launching... done, v5
+       http://mighty-hollows-9422.herokuapp.com deployed to Heroku
+
+To git@heroku.com:mighty-hollows-9422.git
+   c4f22f5..4bb9938  master -> master
+
+(venv) C:\helloflask>heroku ps:scale web=1
+Scaling web dynos... done, now running 1
+
+(venv) C:\helloflask>heroku ps
+=== web (1X): `gunicorn hello1:app`
+web.1: crashed 2013/10/12 00:44:03 (~ 34s ago)
+
+
+(venv) C:\helloflask>heroku open
+Opening mighty-hollows-9422... done
+
+(venv) C:\helloflask>heroku logs
+2013-10-11T16:31:51.695728+00:00 app[web.1]:     __import__(module)
+2013-10-11T16:31:51.695728+00:00 app[web.1]:     return util.import_app(self.app
+_uri)
+2013-10-11T16:31:51.825025+00:00 app[web.1]: 2013-10-11 16:31:51 [2] [INFO] Shut
+ting down: Master
+2013-10-11T16:31:51.825168+00:00 app[web.1]: 2013-10-11 16:31:51 [2] [INFO] Reas
+on: Worker failed to boot.
+2013-10-11T16:31:53.163196+00:00 heroku[web.1]: Process exited with status 3
+2013-10-11T16:31:53.179581+00:00 heroku[web.1]: State changed from starting to c
+rashed
+2013-10-11T16:41:51.973402+00:00 heroku[web.1]: State changed from crashed to st
+arting
+2013-10-11T16:41:55.868691+00:00 heroku[web.1]: Starting process with command `g
+unicorn hello:app`
+2013-10-11T16:41:57.373586+00:00 app[web.1]: 2013-10-11 16:41:57 [2] [INFO] Star
+ting gunicorn 18.0
+2013-10-11T16:41:57.374832+00:00 app[web.1]: 2013-10-11 16:41:57 [2] [INFO] Usin
+g worker: sync
+2013-10-11T16:41:57.374580+00:00 app[web.1]: 2013-10-11 16:41:57 [2] [INFO] List
+ening at: http://0.0.0.0:59195 (2)
+2013-10-11T16:41:57.383811+00:00 app[web.1]: 2013-10-11 16:41:57 [7] [INFO] Boot
+ing worker with pid: 7
+2013-10-11T16:41:57.760669+00:00 app[web.1]: 2013-10-11 16:41:57 [7] [ERROR] Exc
+eption in worker process:
+2013-10-11T16:41:57.760669+00:00 app[web.1]: Traceback (most recent call last):
+2013-10-11T16:41:57.760669+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/arbiter.py", line 495, in spawn_worker
+2013-10-11T16:41:57.760669+00:00 app[web.1]:     worker.init_process()
+2013-10-11T16:41:57.760669+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/workers/base.py", line 106, in init_process
+2013-10-11T16:41:57.760669+00:00 app[web.1]:     self.callable = self.load()
+2013-10-11T16:41:57.760669+00:00 app[web.1]:     self.wsgi = self.app.wsgi()
+2013-10-11T16:41:57.760669+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/app/base.py", line 114, in wsgi
+2013-10-11T16:41:57.760863+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/app/wsgiapp.py", line 49, in load_wsgiapp
+2013-10-11T16:41:57.760669+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/app/wsgiapp.py", line 62, in load
+2013-10-11T16:41:57.760669+00:00 app[web.1]:     return self.load_wsgiapp()
+2013-10-11T16:41:57.760863+00:00 app[web.1]:     __import__(module)
+2013-10-11T16:41:57.760863+00:00 app[web.1]:   File "/app/hello.py", line 2, in
+<module>
+2013-10-11T16:41:57.760863+00:00 app[web.1]:     from flask import flask
+2013-10-11T16:41:57.761042+00:00 app[web.1]:     return self.load_wsgiapp()
+2013-10-11T16:41:57.760863+00:00 app[web.1]: ImportError: cannot import name fla
+sk
+2013-10-11T16:41:57.760863+00:00 app[web.1]:     return util.import_app(self.app
+_uri)
+2013-10-11T16:41:57.760863+00:00 app[web.1]: Traceback (most recent call last):
+2013-10-11T16:41:57.761042+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/app/wsgiapp.py", line 49, in load_wsgiapp
+2013-10-11T16:41:57.761042+00:00 app[web.1]:     self.callable = self.load()
+2013-10-11T16:41:57.761518+00:00 app[web.1]: ImportError: cannot import name fla
+sk
+2013-10-11T16:41:57.760863+00:00 app[web.1]:     worker.init_process()
+2013-10-11T16:41:57.761518+00:00 app[web.1]:   File "/app/hello.py", line 2, in
+<module>
+2013-10-11T16:41:57.760863+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/arbiter.py", line 495, in spawn_worker
+2013-10-11T16:41:57.760863+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/util.py", line 354, in import_app
+2013-10-11T16:41:57.761042+00:00 app[web.1]:     self.wsgi = self.app.wsgi()
+2013-10-11T16:41:57.761042+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/app/base.py", line 114, in wsgi
+2013-10-11T16:41:57.761042+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/app/wsgiapp.py", line 62, in load
+2013-10-11T16:41:57.761042+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/workers/base.py", line 106, in init_process
+2013-10-11T16:41:57.761042+00:00 app[web.1]:     return util.import_app(self.app
+_uri)
+2013-10-11T16:41:57.761042+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/util.py", line 354, in import_app
+2013-10-11T16:41:57.761042+00:00 app[web.1]:     __import__(module)
+2013-10-11T16:41:57.761518+00:00 app[web.1]: 2013-10-11 16:41:57 [7] [INFO] Work
+er exiting (pid: 7)
+2013-10-11T16:41:57.761518+00:00 app[web.1]:     from flask import flask
+2013-10-11T16:41:58.147340+00:00 app[web.1]: 2013-10-11 16:41:57 [2] [INFO] Reas
+on: Worker failed to boot.
+2013-10-11T16:41:58.147115+00:00 app[web.1]: 2013-10-11 16:41:57 [2] [INFO] Shut
+ting down: Master
+2013-10-11T16:41:59.274321+00:00 heroku[web.1]: Process exited with status 3
+2013-10-11T16:41:59.288968+00:00 heroku[web.1]: State changed from starting to c
+rashed
+2013-10-11T16:43:39+00:00 heroku[slug-compiler]: Slug compilation started
+2013-10-11T16:43:57.711542+00:00 heroku[api]: Deploy 4bb9938 by vpssk2011@gmail.
+com
+2013-10-11T16:43:57+00:00 heroku[slug-compiler]: Slug compilation finished
+2013-10-11T16:43:58.308464+00:00 heroku[web.1]: State changed from crashed to st
+arting
+2013-10-11T16:43:57.735820+00:00 heroku[api]: Release v5 created by vpssk2011@gm
+ail.com
+2013-10-11T16:44:03.013041+00:00 heroku[web.1]: Starting process with command `g
+unicorn hello1:app`
+2013-10-11T16:44:04.766333+00:00 app[web.1]: 2013-10-11 16:44:04 [2] [INFO] Star
+ting gunicorn 18.0
+2013-10-11T16:44:04.766952+00:00 app[web.1]: 2013-10-11 16:44:04 [2] [INFO] List
+ening at: http://0.0.0.0:36241 (2)
+2013-10-11T16:44:04.767181+00:00 app[web.1]: 2013-10-11 16:44:04 [2] [INFO] Usin
+g worker: sync
+2013-10-11T16:44:04.782910+00:00 app[web.1]: 2013-10-11 16:44:04 [7] [INFO] Boot
+ing worker with pid: 7
+2013-10-11T16:44:05.607622+00:00 app[web.1]: 2013-10-11 16:44:05 [7] [ERROR] Exc
+eption in worker process:
+2013-10-11T16:44:05.607622+00:00 app[web.1]: Traceback (most recent call last):
+2013-10-11T16:44:05.607622+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/arbiter.py", line 495, in spawn_worker
+2013-10-11T16:44:05.607622+00:00 app[web.1]:     worker.init_process()
+2013-10-11T16:44:05.607622+00:00 app[web.1]:     self.wsgi = self.app.wsgi()
+2013-10-11T16:44:05.607622+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/app/base.py", line 114, in wsgi
+2013-10-11T16:44:05.607622+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/app/wsgiapp.py", line 62, in load
+2013-10-11T16:44:05.607622+00:00 app[web.1]:     return self.load_wsgiapp()
+2013-10-11T16:44:05.607622+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/workers/base.py", line 106, in init_process
+2013-10-11T16:44:05.607819+00:00 app[web.1]:     __import__(module)
+2013-10-11T16:44:05.607819+00:00 app[web.1]: Traceback (most recent call last):
+2013-10-11T16:44:05.607819+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/arbiter.py", line 495, in spawn_worker
+2013-10-11T16:44:05.607819+00:00 app[web.1]:     return util.import_app(self.app
+_uri)
+2013-10-11T16:44:05.607819+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/util.py", line 354, in import_app
+2013-10-11T16:44:05.607819+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/app/wsgiapp.py", line 49, in load_wsgiapp
+2013-10-11T16:44:05.607819+00:00 app[web.1]: NameError: name '_name_' is not def
+ined
+2013-10-11T16:44:05.607964+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/app/wsgiapp.py", line 62, in load
+2013-10-11T16:44:05.607819+00:00 app[web.1]:     worker.init_process()
+2013-10-11T16:44:05.607964+00:00 app[web.1]:     self.callable = self.load()
+2013-10-11T16:44:05.607964+00:00 app[web.1]:     return self.load_wsgiapp()
+2013-10-11T16:44:05.607622+00:00 app[web.1]:     self.callable = self.load()
+2013-10-11T16:44:05.607819+00:00 app[web.1]:   File "/app/hello1.py", line 4, in
+ <module>
+2013-10-11T16:44:05.607819+00:00 app[web.1]:     app =Flask(_name_)
+2013-10-11T16:44:05.607964+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/app/wsgiapp.py", line 49, in load_wsgiapp
+2013-10-11T16:44:05.607964+00:00 app[web.1]:     return util.import_app(self.app
+_uri)
+2013-10-11T16:44:05.608394+00:00 app[web.1]:     app =Flask(_name_)
+2013-10-11T16:44:05.608394+00:00 app[web.1]: NameError: name '_name_' is not def
+ined
+2013-10-11T16:44:05.607964+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/workers/base.py", line 106, in init_process
+2013-10-11T16:44:05.607964+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/app/base.py", line 114, in wsgi
+2013-10-11T16:44:05.607964+00:00 app[web.1]:     self.wsgi = self.app.wsgi()
+2013-10-11T16:44:05.608394+00:00 app[web.1]: 2013-10-11 16:44:05 [7] [INFO] Work
+er exiting (pid: 7)
+2013-10-11T16:44:05.607964+00:00 app[web.1]:   File "/app/.heroku/python/lib/pyt
+hon2.7/site-packages/gunicorn/util.py", line 354, in import_app
+2013-10-11T16:44:05.608394+00:00 app[web.1]:   File "/app/hello1.py", line 4, in
+ <module>
+2013-10-11T16:44:05.607964+00:00 app[web.1]:     __import__(module)
+2013-10-11T16:44:05.741342+00:00 app[web.1]: 2013-10-11 16:44:05 [2] [INFO] Shut
+ting down: Master
+2013-10-11T16:44:05.741483+00:00 app[web.1]: 2013-10-11 16:44:05 [2] [INFO] Reas
+on: Worker failed to boot.
+2013-10-11T16:44:05.255912+00:00 heroku[web.1]: State changed from starting to u
+p
+2013-10-11T16:44:06.876558+00:00 heroku[web.1]: State changed from up to crashed
+
+2013-10-11T16:44:06.865363+00:00 heroku[web.1]: Process exited with status 3
+2013-10-11T16:44:27.963811+00:00 heroku[api]: Scale to web=1 by vpssk2011@gmail.
+com
+2013-10-11T16:45:20.339559+00:00 heroku[router]: at=error code=H10 desc="App cra
+shed" method=GET path=/ host=mighty-hollows-9422.herokuapp.com fwd="175.141.21.1
+72" dyno= connect= service= status=503 bytes=
+
+(venv) C:\helloflask>
+==================================================
+
+Trying again on 19/10/2011
+
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\Staff>cd ..
+
+
+
+C:\>heroku login
+Enter your Heroku credentials.
+Email: vpssk2011@gmail.com
+Password (typing will be hidden):
+Authentication successful.
+
+C:\>cd helloflask
+
+C:\helloflask>virtualenv venv --distribute
+New python executable in venv\Scripts\python.exe
+Installing Setuptools...........................................................
+.............................................done.
+Installing Pip..................................................................
+....................................................................done.
+
+C:\helloflask>
